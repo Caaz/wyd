@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: wyd_development
+
+test:
+  <<: *default
+  database: wyd_test
+
+production:
+  <<: *default
+  database: wyd_production
+  username: wyd_user
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
