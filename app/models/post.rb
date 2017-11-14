@@ -5,7 +5,8 @@ class Post < ApplicationRecord
 
   def no_repeat
     # puts user
-    if user.posts[-2].content == content then
+    last_post = user.posts[-2]
+    if last_post && last_post.content == content then
       puts user.posts.last.inspect
       errors.add(:content, "can't be the same as your last post!")
     end
