@@ -5,6 +5,55 @@
         %h1.uk-heading-primary.uk-text-center.uk-padding Edit Account
       %div= devise_error_messages!
       %div
+        .js-upload.uk-placeholder.uk-text-center
+          %span(uk-icon='icon: cloud-upload')
+          %span.uk-text-middle Upload an avatar, by dragging here!
+          %div(uk-form-custom)
+            = f.file_field :avatar
+            %span.uk-link Or, by clicking here
+          %div.uk-text-middle It works, trust me. I'm too lazy to put the uploaded image here. Just accept it.
+        %progress#js-progressbar.uk-progress{value:0,max:100,hidden:true}
+        :javascript
+          var bar = document.getElementById('js-progressbar')
+          UIkit.upload('.js-upload', {
+              url: '/user/avatar',
+              multiple: false,
+              name: 'avatar',
+              mime: 'image/*',
+              loadStart: function (e) {
+                  console.log('loadStart', arguments);
+
+                  bar.removeAttribute('hidden');
+                  bar.max = e.total;
+                  bar.value = e.loaded;
+              },
+
+              progress: function (e) {
+                  console.log('progress', arguments);
+
+                  bar.max = e.total;
+                  bar.value = e.loaded;
+              },
+
+              loadEnd: function (e) {
+                  console.log('loadEnd', arguments);
+
+                  bar.max = e.total;
+                  bar.value = e.loaded;
+              },
+
+              completeAll: function () {
+                  console.log('completeAll', arguments);
+
+                  setTimeout(function () {
+                      bar.setAttribute('hidden', 'hidden');
+                  }, 1000);
+
+                  // alert('Upload Completed');
+              }
+
+          });
+      %div
         .uk-inline.uk-width-1-1
           %span.uk-form-icon{'uk-icon': 'icon:mail'}
           = f.email_field :email, placeholder: 'Email', class: 'uk-input'
