@@ -1,2 +1,1 @@
-console.log('Appending post')
-$("#posts").append("<%= render partial: 'post', locals: {post: @post} %>")
+$("#posts").prepend("<%= j render @post %>").children().last().remove()

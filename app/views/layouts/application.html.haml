@@ -14,6 +14,7 @@
         .uk-offcanvas-bar.uk-flex.uk-flex-column
           %button.uk-offcanvas-close(type='button' uk-close)
           %ul.uk-nav.uk-nav-primary.uk-nav-center.uk-margin-auto-vertical
+      #alerts.uk-position-fixed.uk-position-bottom-right.uk-position-z-index.uk-padding.uk-padding-remove-bottom
       %header(uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky")
         %nav.uk-navbar-container(uk-navbar)
           .uk-navbar-left
@@ -22,7 +23,7 @@
                 %a(href='#offcanvas' uk-toggle uk-icon='icon: menu')
           .uk-navbar-center
             %ul.uk-navbar-nav
-              %li WYD
+              %li= link_to 'WYD', root_path
               -# %a.uk-navbar-item.uk-logo(href='/')= image_tag (asset_url 'logo/logo')
           %div(class='uk-navbar-right uk-visible@s')
             %ul.uk-navbar-nav.uk-margin-right

@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
     if user_signed_in? then
       @post = current_user.posts.build()
     end
-    @posts = Post.all
+    @posts = Post.last(20).reverse()
   end
 end

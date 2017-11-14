@@ -34,7 +34,7 @@ class PostsController < ApplicationController
         format.json { render json: @post }
       else
         format.html { render :new }
-        # format.js { render {} }
+        format.js { render :error }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end

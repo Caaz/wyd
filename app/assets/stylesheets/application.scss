@@ -10,7 +10,12 @@ header > nav {
 main {
   min-height:calc(100vh - 80px);
 }
-
+textarea {
+  height:5em!important;
+  line-height:1.4em!important;
+  resize:none;
+  padding-top:.4em!important;
+}
 #user {
   color:#EEE;
   .name {

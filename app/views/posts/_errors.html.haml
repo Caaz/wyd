@@ -1,0 +1,6 @@
+- errors.each do |key, reasons|
+  %div.uk-alert-danger.uk-box-shadow-medium.uk-animation-slide-bottom(uk-alert)
+    %a.uk-alert-close(uk-close)
+    %ul.uk-list.uk-margin-right
+      - reasons.each do |reason|
+        %li= (key.to_s.capitalize) +' '+ reason
