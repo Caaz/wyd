@@ -1,7 +1,6 @@
 Rails.application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
-
-  # Code is not reloaded between requests.
+  config.action_cable.allowed_request_origins = ['https://what-you-doin.herokuapp.com', 'http://what-you-doin.herokuapp.com']
+  config.action_cable.url = "wss://sitepoint-actioncable.herokuapp.com/cable"
   config.cache_classes = true
 
   # Eager load code on boot. This eager loads most of Rails and
