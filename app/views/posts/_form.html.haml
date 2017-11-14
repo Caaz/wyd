@@ -1,0 +1,5 @@
+= form_with model: @post, id:'new-post' do |f|
+  = f.text_field :content, class: 'uk-input uk-form-large uk-width-1-1', placeholder: 'Right now I\'m...'
+  = f.submit 'Save', { hidden: true }
+  -# .uk-inline.uk-width-1-1
+    -# %a.uk-form-icon.uk-form-icon-flip{'uk-icon' => 'icon:check', 'icon-submit' => ''}

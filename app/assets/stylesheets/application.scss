@@ -1,0 +1,32 @@
+$global-primary-background:rgb(122, 83, 144);
+@import "uikit/variables-theme.scss";
+@import "uikit/mixins-theme.scss";
+@import "uikit/uikit-theme.scss";
+
+header > nav {
+  // color:#;
+  background-color:#EAEAEA!important;
+}
+main {
+  min-height:calc(100vh - 80px);
+}
+
+#user {
+  color:#EEE;
+  .name {
+    color:#EEE;
+  }
+  .avatar {
+    border-radius:50%;
+    width:150px;
+    height:150px;
+    background-color:white;
+    margin:0 auto;
+  }
+}
+.post {
+  .avatar {
+    width:50px;
+    height:50px;
+  }
+}

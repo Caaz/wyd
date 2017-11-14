@@ -1,0 +1,10 @@
+%div
+  .post.uk-card.uk-card-default.uk-grid-collapse.uk-margin(uk-grid)
+    .uk-card-media-left.uk-flex.uk-flex-center.uk-flex-middle.uk-padding-small
+      = image_tag post.user.avatar.url(:thumb), {class:'avatar uk-border-circle'}
+    .uk-card-body.uk-padding-small
+      .uk-container.uk-grid-collapse.uk-child-width-1-1(uk-grid)
+        %span
+          = post.user.name
+          %span.uk-text-meta= '@' + post.user.username
+        %span.uk-text-lead= post.content

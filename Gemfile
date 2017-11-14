@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 
-gem 'rails', '~> 5.0.2'
+gem 'rails', '~> 5.1.4'
 gem 'pg'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
@@ -18,7 +18,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 gem 'haml-rails'
-# gem 'font-awesome-sass', '~> 4.6.2'
+gem 'paperclip', '~> 5.0.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri

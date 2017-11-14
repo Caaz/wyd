@@ -2,10 +2,33 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Wyd
+    %meta{name: :viewport, content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'}/
     = csrf_meta_tags
+    %title WYD
+    -# = display_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = link_to('Login', new_user_session_path)
-    = yield
+    .uk-offcanvas-content
+      #offcanvas(uk-offcanvas="mode: push")
+        .uk-offcanvas-bar.uk-flex.uk-flex-column
+          %button.uk-offcanvas-close(type='button' uk-close)
+          %ul.uk-nav.uk-nav-primary.uk-nav-center.uk-margin-auto-vertical
+      %header(uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky")
+        %nav.uk-navbar-container(uk-navbar)
+          .uk-navbar-left
+            %ul.uk-navbar-nav
+              %li(class='uk-hidden@s')
+                %a(href='#offcanvas' uk-toggle uk-icon='icon: menu')
+          .uk-navbar-center
+            %ul.uk-navbar-nav
+              %li WYD
+              -# %a.uk-navbar-item.uk-logo(href='/')= image_tag (asset_url 'logo/logo')
+          %div(class='uk-navbar-right uk-visible@s')
+            %ul.uk-navbar-nav.uk-margin-right
+              - if user_signed_in?
+                %li= link_to 'Edit Account', edit_user_registration_path
+                %li= link_to 'Sign Out', destroy_user_session_path, method: :delete
+              - else
+                %li= link_to 'Login', new_user_session_path
+      %main= yield

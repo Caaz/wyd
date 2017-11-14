@@ -1,1 +1,4 @@
-%h1 Baka
+-# %h1 Baka
+- if user_signed_in?
+  = render 'posts/index', locals: {posts: current_user.posts}
+  -# %pre= current_user.to_yaml

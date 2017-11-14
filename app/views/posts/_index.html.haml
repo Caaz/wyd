@@ -1,0 +1,14 @@
+.container.uk-background-primary.uk-grid-collapse(uk-grid uk-height-viewport="offset-top: true")
+  #user.uk-padding.container(class='uk-width-1-1@s uk-width-1-4@m uk-width-1-5@l')
+    .avatar.uk-cover-container
+      = image_tag current_user.avatar.url(:medium), {'uk-cover':true}
+    %h3.name.uk-text-center
+      %span= current_user.name
+      %br
+      %small= "@"+ current_user.username
+    %small.bio= current_user.bio
+  %div.uk-width-expand.uk-background-muted.uk-padding
+    .uk-margin-bottom= render partial: 'posts/form'
+    #posts.uk-grid-small.uk-child-width-1-1(uk-grid)
+      - if @posts
+        = render @posts
